@@ -1,6 +1,4 @@
-Sure! Here’s your updated README content with all references changed to **deepar\_flutter\_perfect** and polished for clarity:
 
----
 
 # deepar\_flutter\_perfect
 
