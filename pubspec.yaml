@@ -1,9 +1,11 @@
-name: deepar_flutter_plus
-description: Enhanced DeepAR Flutter SDK with support for loading effects from assets, file paths, and URLs with caching
-version: 0.2.0
+name: deepar_flutter_perfect
+description: DeepAR Flutter plugin with full support for all Android devices—including Xiaomi—and iOS. Easily load AR effects from assets, file paths, or URLs for smooth, reliable performance everywhere.
+version: 0.0.1
+documentation: https://assajeeb.com/
 homepage: https://deepar.ai/
-repository: https://github.com/Ifoegbu1/deepar-flutter-plus
-issue_tracker: https://github.com/Ifoegbu1/deepar-flutter-plus/issues
+repository: https://github.com/assajeeb/deepar_flutter_perfect
+issue_tracker: https://github.com/assajeeb/deepar_flutter_perfect/issues
+
 
 environment:
   sdk: ">=2.16.1 <4.0.0"
@@ -65,3 +67,5 @@ flutter:
   #
   # For details regarding fonts in packages, see
   # https://flutter.dev/custom-fonts/#from-packages
+
+

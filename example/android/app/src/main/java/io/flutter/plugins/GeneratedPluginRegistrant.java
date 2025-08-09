@@ -18,7 +18,7 @@ public final class GeneratedPluginRegistrant {
     try {
       flutterEngine.getPlugins().add(new com.deepar.ai.DeepArPlugin());
     } catch (Exception e) {
-      Log.e(TAG, "Error registering plugin deepar_flutter_plus, com.deepar.ai.DeepArPlugin", e);
+      Log.e(TAG, "Error registering plugin deepar_flutter_perfect, com.deepar.ai.DeepArPlugin", e);
     }
     try {
       flutterEngine.getPlugins().add(new io.flutter.plugins.pathprovider.PathProviderPlugin());

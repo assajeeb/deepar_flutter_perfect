@@ -2,7 +2,8 @@ import 'dart:async';
 import 'dart:developer';
 import 'dart:io';
 
-import 'package:deepar_flutter_plus/deepar_flutter_plus.dart';
+
+import 'package:deepar_flutter_perfect/deepar_flutter_perfect.dart';
 import 'package:flutter/material.dart';
 
 void main() {

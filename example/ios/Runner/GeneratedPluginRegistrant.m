@@ -6,10 +6,10 @@
 
 #import "GeneratedPluginRegistrant.h"
 
-#if __has_include(<deepar_flutter_plus/DeepArPlugin.h>)
-#import <deepar_flutter_plus/DeepArPlugin.h>
+#if __has_include(<deepar_flutter_perfect/DeepArPlugin.h>)
+#import <deepar_flutter_perfect/DeepArPlugin.h>
 #else
-@import deepar_flutter_plus;
+@import deepar_flutter_perfect;
 #endif
 
 #if __has_include(<path_provider_foundation/PathProviderPlugin.h>)

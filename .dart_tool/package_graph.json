@@ -1,11 +1,11 @@
 {
   "roots": [
-    "deepar_flutter_plus"
+    "deepar_flutter_perfect"
   ],
   "packages": [
     {
-      "name": "deepar_flutter_plus",
-      "version": "0.2.0",
+      "name": "deepar_flutter_perfect",
+      "version": "0.0.1",
       "dependencies": [
         "flutter",
         "flutter_cache_manager",

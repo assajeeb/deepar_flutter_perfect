@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 
-import 'deep_ar_controller_plus.dart';
+import 'deep_ar_controller_perfect.dart';
 
 /// Displays live preview with desired effects.
 class DeepArPreviewPlus extends StatefulWidget {

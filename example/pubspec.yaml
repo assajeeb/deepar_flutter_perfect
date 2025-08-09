@@ -11,7 +11,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  deepar_flutter_plus:
+  deepar_flutter_perfect:
     path: ../
 
   cupertino_icons: ^1.0.8
