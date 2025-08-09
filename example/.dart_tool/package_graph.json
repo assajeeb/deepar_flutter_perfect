@@ -82,7 +82,7 @@
     },
     {
       "name": "deepar_flutter_perfect",
-      "version": "0.0.1",
+      "version": "0.0.3",
       "dependencies": [
         "flutter",
         "flutter_cache_manager",

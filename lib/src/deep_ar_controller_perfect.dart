@@ -74,6 +74,8 @@ class DeepArControllerPerfect {
     return false;
   }
 
+  int? get textureID => _textureId;
+
   ///If the user has allowed required camera permissions
   bool get hasPermission => _hasPermission;
 
@@ -115,8 +117,7 @@ class DeepArControllerPerfect {
     required String? iosLicenseKey,
     Resolution resolution = Resolution.medium,
   }) async {
-    assert(androidLicenseKey != null || iosLicenseKey != null,
-        "Both android and iOS license keys cannot be null");
+    assert(androidLicenseKey != null || iosLicenseKey != null, "Both android and iOS license keys cannot be null");
 
     // Prevent concurrent initialization
     if (_isInitializing) {
