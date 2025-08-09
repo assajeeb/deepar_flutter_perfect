@@ -19,9 +19,7 @@ This plugin is a fork of the official [DeepAR Flutter SDK](https://pub.dev/packa
 * Flip camera ✅
 * Toggle flash ✅
 
-| Platform | Android | iOS       |
-| -------- | ------- | --------- |
-| Support  | SDK 23+ | iOS 13.0+ |
+Android SDK 23+
 
 ---
 
