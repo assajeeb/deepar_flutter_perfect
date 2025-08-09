@@ -36,7 +36,7 @@ class ARView extends StatefulWidget {
 }
 
 class _ARViewState extends State<ARView> {
-  final DeepArControllerPlus _controller = DeepArControllerPlus();
+  final DeepArControllerPerfect _controller = DeepArControllerPerfect();
   bool isInitialized = false;
   final String effectURL = 'YOUR_EFFECT_URL_HERE';
 
@@ -108,7 +108,7 @@ class _ARViewState extends State<ARView> {
     return isInitialized
         ? Transform.scale(
             scale: _controller.aspectRatio * 1.3, //change value as needed
-            child: DeepArPreviewPlus(_controller),
+            child: DeepArPreviewPerfect(_controller),
           )
         : const Center(
             child: CircularProgressIndicator(),

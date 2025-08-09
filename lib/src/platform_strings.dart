@@ -1,4 +1,5 @@
 class PlatformStrings {
+
   // Platform channels
   static const String generalChannel = "deep_ar";
   static const String cameraXChannel = "deep_ar/camerax";

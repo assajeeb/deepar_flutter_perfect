@@ -12,12 +12,12 @@ import 'platform_strings.dart';
 import 'resolution_preset.dart';
 import 'utils.dart';
 
-/// Result of the initialize method containing success status and a message
+
 class InitializeResult {
-  /// Whether initialization was successful
+
   final bool success;
 
-  /// Message describing the result of initialization
+
   final String message;
 
   /// Creates a new [InitializeResult]
@@ -25,7 +25,7 @@ class InitializeResult {
 }
 
 /// Controls all interaction with DeepAR Sdk.
-class DeepArControllerPlus {
+class DeepArControllerPerfect {
   late final DeepArPlatformHandler _deepArPlatformHandler;
   late final Resolution _resolution;
 
@@ -39,11 +39,11 @@ class DeepArControllerPlus {
   CameraDirection _cameraDirection = CameraDirection.front;
   bool _flashState = false;
 
-  DeepArControllerPlus() {
+  DeepArControllerPerfect() {
     _deepArPlatformHandler = DeepArPlatformHandler();
   }
 
-  ///Return true if the camera preview is initialized
+
   ///
   ///For [iOS], please call the function after [DeepArPreviewPlus] widget has been built.
   bool get isInitialized {

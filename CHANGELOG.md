@@ -1,5 +1,6 @@
 # Changelog
-
+## 0.0.3
+- Fixed Device name and documentations
 ## 0.0.2
 - Fixed naming inconsistencies and improved documentation
 

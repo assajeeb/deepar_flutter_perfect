@@ -5,17 +5,17 @@ import 'package:flutter/material.dart';
 import 'deep_ar_controller_perfect.dart';
 
 /// Displays live preview with desired effects.
-class DeepArPreviewPlus extends StatefulWidget {
-  const DeepArPreviewPlus(this.deepArController, {Key? key, this.onViewCreated})
+class DeepArPreviewPerfect extends StatefulWidget {
+  const DeepArPreviewPerfect(this.deepArController, {Key? key, this.onViewCreated})
       : super(key: key);
-  final DeepArControllerPlus deepArController;
+  final DeepArControllerPerfect deepArController;
   final Function? onViewCreated;
 
   @override
-  State<DeepArPreviewPlus> createState() => _DeepArPreviewPlusState();
+  State<DeepArPreviewPerfect> createState() => _DeepArPreviewPerfectState();
 }
 
-class _DeepArPreviewPlusState extends State<DeepArPreviewPlus> {
+class _DeepArPreviewPerfectState extends State<DeepArPreviewPerfect> {
   @override
   Widget build(BuildContext context) {
     return Center(
