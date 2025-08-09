@@ -1,180 +1,186 @@
-# DeepAR Flutter Plus
+Sure! Here’s your updated README content with all references changed to **deepar\_flutter\_perfect** and polished for clarity:
 
-An enhanced version of the official DeepAR Flutter SDK that adds support for loading effects from assets, file paths, and URLs with caching. This makes it possible to load effects that are downloaded or stored anywhere on the device's filesystem, or directly from the internet with automatic caching.
+---
 
-This plugin is a fork of the official SDK for [DeepAR](https://pub.dev/packages/deepar_flutter). Platforms supported: Android & iOS.
+# deepar\_flutter\_perfect
 
-The current version of plugin supports:
-- Load effects from assets, file paths, and URLs with caching ✨ (New!)
-- Live AR previews ✅
-- Take screenshots ✅
-- Record Videos ✅
-- Flip camera ✅
-- Toggle Flash ✅
+An enhanced Flutter plugin based on the official DeepAR SDK, providing robust support for loading AR effects from assets, file paths, and URLs with automatic caching. This enables loading effects stored locally or directly from the internet, ensuring smooth AR experiences on **all Android devices—including Xiaomi—and iOS**.
 
-| Support |Android  | iOS|
-|--|--|--|
-|  |SDK 23+  |  iOS 13.0+|
+This plugin is a fork of the official [DeepAR Flutter SDK](https://pub.dev/packages/deepar_flutter_perfect). Supported platforms: **Android (SDK 23+)** and **iOS (13.0+)**.
 
-> ⚠️ **BREAKING CHANGE in v0.1.7**: The `initialize()` method now returns an `InitializeResult` object with `success` and `message` properties instead of just a boolean. See the [initialization section](#flutter) for updated usage.
->
-> **New in v0.1.9**: Updated iOS implementation for the latest DeepAR SDK with improved compatibility and effect loading.
->
-> **New in v0.1.8**: Improved iOS camera initialization with better error handling and platform view creation.
+---
+
+## Features
+
+* Load AR effects from assets, file paths, and remote URLs with caching ✨ (New!)
+* Live AR preview ✅
+* Take screenshots ✅
+* Record videos ✅
+* Flip camera ✅
+* Toggle flash ✅
+
+| Platform | Android | iOS       |
+| -------- | ------- | --------- |
+| Support  | SDK 23+ | iOS 13.0+ |
+
+---
+
+## Breaking Changes
+
+* **v0.1.7**: The `initialize()` method now returns an `InitializeResult` object with `success` and `message` properties (not just a boolean). See [Flutter usage](#flutter) for updated code.
+* **v0.1.9**: Updated iOS implementation with improved compatibility and effect loading.
+* **v0.1.8**: Improved iOS camera initialization and error handling.
+
+---
 
 ## Installation
-Please visit the [developer website](https://developer.deepar.ai) to create a project and generate your separate license keys for both platforms.
 
-Once done, please add the latest `deepar_flutter_plus` dependency to your pubspec.yaml.
+### Before you begin
 
-**Android**:
- 1. compileSdkVersion should be 33 or more.
- 2. minSdkVersion should be 23 or more.
- 3. Download the native android dependencies from the [downloads](https://developer.deepar.ai/downloads) section and paste it in your flutter project at `android/app/libs/deepar.aar`.
- 4. Make sure to `pub clean` & `flutter pub upgrade` to fetch latest working code.
+Visit the [DeepAR developer site](https://developer.deepar.ai) to create a project and obtain license keys for Android and iOS.
 
-**iOS**:
- 1. iOS 13.0+ is required.
- 2. If you encounter the error `'deepar_flutter-Swift.h' file not found`, make sure you're using the latest version of the plugin which fixes this issue.
+---
 
-Also add the following permission requests in your AndroidManifest.xml
-```xml
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"  />
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-<uses-permission android:name="android.permission.RECORD_AUDIO"/>
-<uses-permission android:name="android.permission.CAMERA" />
-<uses-permission android:name="android.permission.INTERNET" />
-```
+### Android
 
-Ensure to add these rules to `proguard-rules.pro` else app might crash in release build
-```
--keepclassmembers class ai.deepar.ar.DeepAR { *; }
--keepclassmembers class ai.deepar.ar.core.videotexture.VideoTextureAndroidJava { *; }
--keep class ai.deepar.ar.core.videotexture.VideoTextureAndroidJava
-```
+1. Set `compileSdkVersion` to 33 or higher and `minSdkVersion` to 23 or higher.
 
-**iOS:**
-1. Ensure your app iOS deployment version is 13.0+.
-2. Do a flutter clean & install pods.
-3. To handle camera and microphone permissions, please add the following strings to your info.plist.
-4. Make sure to `pub clean` & `flutter pub upgrade` to fetch latest working code.
+2. Download native Android dependencies from [downloads](https://developer.deepar.ai/downloads) and place `deepar.aar` into `android/app/libs/`.
 
-```xml
-<key>NSCameraUsageDescription</key>
-<string>---Reason----</string>
-<key>NSMicrophoneUsageDescription</key>
-<string>---Reason----</string>
-```
-6. Also add the following to your `Podfile` file:
-```ruby
-post_install do |installer|
-  installer.pods_project.targets.each do |target|
-    ... # Here are some configurations automatically generated by flutter
+3. Run:
 
-    # Start of the deepar configuration
-    target.build_configurations.each do |config|
+   ```bash
+   flutter clean
+   flutter pub upgrade
+   ```
 
-      config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= [
-        '$(inherited)',
+4. Add these permissions to your `AndroidManifest.xml`:
 
-        ## dart: PermissionGroup.camera
-         'PERMISSION_CAMERA=1',
+   ```xml
+   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+   <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+   <uses-permission android:name="android.permission.CAMERA" />
+   <uses-permission android:name="android.permission.INTERNET" />
+   ```
 
-        ## dart: PermissionGroup.microphone
-         'PERMISSION_MICROPHONE=1',
-      ]
+5. Add these rules to `proguard-rules.pro` to prevent release crashes:
 
-    end
-    # End of the permission_handler configuration
-  end
-end
-```
+   ```
+   -keepclassmembers class ai.deepar.ar.DeepAR { *; }
+   -keepclassmembers class ai.deepar.ar.core.videotexture.VideoTextureAndroidJava { *; }
+   -keep class ai.deepar.ar.core.videotexture.VideoTextureAndroidJava
+   ```
 
+---
 
-<a name="flutter"></a>**Flutter:**
+### iOS
 
-1. Initialize  `DeepArControllerPlus` by passing in your license keys for both platforms.
+1. Set deployment target to iOS 13.0 or later.
+2. Run:
+
+   ```bash
+   flutter clean
+   flutter pub upgrade
+   cd ios
+   pod install
+   ```
+3. Add these keys to your `Info.plist` to request camera and microphone permissions:
+
+   ```xml
+   <key>NSCameraUsageDescription</key>
+   <string>Camera access is required for AR effects</string>
+   <key>NSMicrophoneUsageDescription</key>
+   <string>Microphone access is required for recording videos</string>
+   ```
+4. Add this snippet to your `ios/Podfile` for permission handler support:
+
+   ```ruby
+   post_install do |installer|
+     installer.pods_project.targets.each do |target|
+       target.build_configurations.each do |config|
+         config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= [
+           '$(inherited)',
+           'PERMISSION_CAMERA=1',
+           'PERMISSION_MICROPHONE=1',
+         ]
+       end
+     end
+   end
+   ```
+
+---
+
+## Flutter Usage <a name="flutter"></a>
+
+1. Initialize `DeepArControllerPerfect` by passing your license keys:
+
 ```dart
-final DeepArControllerPlus _controller = DeepArControllerPlus();
+final DeepArControllerPerfect _controller = DeepArControllerPerfect();
 final result = await _controller.initialize(
-    androidLicenseKey:"---android key---",
-    iosLicenseKey:"---iOS key---",
-    resolution: Resolution.medium);
+  androidLicenseKey: "---android key---",
+  iosLicenseKey: "---iOS key---",
+  resolution: Resolution.medium,
+);
 
 if (result.success) {
-  // Initialization successful
   print("Initialization successful: ${result.message}");
 
-  // For iOS, you need to wait for the platform view to be fully created
   if (Platform.isIOS) {
-    // Check initialization status periodically
     Timer.periodic(Duration(milliseconds: 500), (timer) {
       if (_controller.isInitialized) {
-        print('iOS view is now fully initialized');
-        setState(() {
-          // Update your UI to show the camera preview
-        });
+        print('iOS view fully initialized');
+        setState(() {});
         timer.cancel();
       } else if (timer.tick > 20) {
-        // Timeout after 10 seconds
         print('Timeout waiting for iOS view initialization');
         timer.cancel();
       }
     });
   }
 } else {
-  // Initialization failed
   print("Initialization failed: ${result.message}");
 }
 ```
 
-2. Place the DeepArPreviewPlus widget in your widget tree to display the preview.
+2. Display the preview widget:
+
 ```dart
 @override
 Widget build(BuildContext context) {
-    return _controller.isInitialized
-        ? DeepArPreviewPlus(_controller)
-        : const Center(
-            child: Text("Loading Preview")
-        );
+  return _controller.isInitialized
+      ? DeepArPreviewPerfect(_controller)
+      : const Center(child: Text("Loading Preview"));
 }
 ```
 
-To display the preview in full screen, wrap `DeepArPreviewPlus` with `Transform.scale()` and use the correct scale factor as per preview area size. See example [here](https://github.com/Ifoegbu1/deepar-flutter-plus/blob/main/example/lib/main.dart).
-
-3. Load effects, filters, or masks using assets, file paths, or URLs:
+3. Load effects from assets, file paths, or URLs:
 
 ```dart
-// Using asset file
 await _controller.switchEffect("assets/effects/my_effect.deepar");
-
-// Using file path
 await _controller.switchEffect("/path/to/effect/file.deepar");
-
-// Using URL (automatically cached)
 await _controller.switchEffect("https://example.com/effects/my_effect.deepar");
-
-// Same applies for filters and masks
-await _controller.switchFilter("https://example.com/filters/beauty.deepar");
-await _controller.switchFaceMask("https://example.com/masks/funny_mask.deepar");
 ```
 
-Note:
-- When using file paths, make sure the app has proper permissions to access the file location
-- When using URLs, effects are automatically cached for better performance and offline access
+4. Take screenshots:
 
-4. To take a picture, use `takeScreenshot()` which returns the picture as file.
 ```dart
 final File file = await _controller.takeScreenshot();
 ```
 
-5. To record a video, please use:
+5. Record videos:
+
 ```dart
 if (_controller.isRecording) {
-    _controller.stopVideoRecording();
+  _controller.stopVideoRecording();
 } else {
-    final File videoFile = _controller.startVideoRecording();
+  final File videoFile = _controller.startVideoRecording();
 }
 ```
 
-For more info, please visit: [Developer Help](https://help.deepar.ai/en/).
+---
+
+For more details, visit [DeepAR Developer Help](https://help.deepar.ai/en/).
+
+---
+

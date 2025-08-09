@@ -1,6 +1,6 @@
 name: deepar_flutter_perfect
 description: DeepAR Flutter plugin with full support for all Android devices—including Xiaomi—and iOS. Easily load AR effects from assets, file paths, or URLs for smooth, reliable performance everywhere.
-version: 0.0.1
+version: 0.0.2
 documentation: https://assajeeb.com/
 homepage: https://deepar.ai/
 repository: https://github.com/assajeeb/deepar_flutter_perfect
